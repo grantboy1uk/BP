@@ -24,6 +24,11 @@ end
   # `vagrant box outdated`. This is not recommended.
   # config.vm.box_check_update = false
 
+  config.ssh.forward_agent    = true
+  config.ssh.insert_key = false
+  config.ssh.private_key_path = ["C:/Users/jermaineg/.ssh/id_rsa", "~/.vagrant.d/insecure_private_key"]
+  config.vm.provision "file", source: "C:/Users/jermaineg/.ssh/id_rsa.pub", destination: "~/.ssh/authorized_keys"
+
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
